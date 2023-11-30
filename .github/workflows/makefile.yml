@@ -16,7 +16,15 @@ jobs:
 
     - name: Make project
       run: make
+
+    - name: make directory
+      run: mkdir -p files
+
+    - name: Create file
+      run: echo hs-dvr-telnet > files/backdoor.bin
             
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.3
-      path: hs-dvr-telnet        
+      with:
+          name: my-file
+          path: files/backdoor.bin        
